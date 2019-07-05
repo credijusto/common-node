@@ -1,0 +1,1 @@
+# stylelint-config-cj-app

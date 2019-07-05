@@ -1,0 +1,26 @@
+{
+  "name": "eslint-config-credijusto-app",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/credijusto/eslint-config-cj-app.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/credijusto/eslint-config-cj-app/issues"
+  },
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "babel-eslint": "9.x",
+    "eslint": "5.x",
+    "eslint-config-react-app": "4.x",
+    "eslint-plugin-flowtype": "2.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.x"
+  }
+}

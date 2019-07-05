@@ -1,0 +1,6 @@
+{
+  "concurrent": false,
+  "linters": {
+    "./**/*.{js|jsx|html|json|mdx|css|pcss}": ["npm run lint", "git add"]
+  }
+}
