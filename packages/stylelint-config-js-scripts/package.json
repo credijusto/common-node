@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-js-scripts",
-  "version": "0.0.6",
+  "version": "0.0.10",
   "description": "",
   "repository": {
     "type": "git",
@@ -17,12 +17,12 @@
     "stylelint": "10.x",
     "stylelint-config-recommended": "2.x",
     "stylelint-config-standard": "18.x",
-    "stylelint-order": "3.x",
+    "stylelint-order": "3.x"
   },
   "peerDependencies": {
     "stylelint": "10.x",
     "stylelint-config-recommended": "2.x",
     "stylelint-config-standard": "18.x",
-    "stylelint-order": "3.x",
+    "stylelint-order": "3.x"
   }
 }
