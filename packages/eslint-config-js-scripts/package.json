@@ -1,12 +1,12 @@
 {
-  "name": "eslint-config-credijusto-app",
+  "name": "eslint-config-js-scripts",
   "version": "0.0.1",
   "description": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/credijusto/eslint-config-cj-app.git"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/credijusto/eslint-config-cj-app/issues"
   },
