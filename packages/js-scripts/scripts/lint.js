@@ -1,7 +1,6 @@
 'use strict'
 
 const chalk = require('chalk')
-
 const spawn = require('cross-spawn')
 
 process.on('unhandledRejection', err => {
