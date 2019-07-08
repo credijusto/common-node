@@ -7,24 +7,14 @@
 
 module.exports = {
   "parser": "babel-eslint",
-  "env": {
-    "jest": true,
-    "browser": true
-  },
   "extends": [
-    "airbnb",
+    "eslint-config-react-app",
     "plugin:jsx-a11y/strict"
   ],
   "rules": {
-    "jsx-quotes": ["error", "prefer-single"],
-    "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": true,
-      "optionalDependencies": false,
-      "peerDependencies": false
-    }],
-    "import/no-unresolved": 0,
     "react/jsx-filename-extension": 0,
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "plugins": [
     "jsx-a11y",

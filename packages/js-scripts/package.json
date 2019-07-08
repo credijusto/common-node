@@ -13,14 +13,8 @@
     "js-scripts": "./bin/js-scripts.js"
   },
   "dependencies": {
-    "@cesargdm/prettier-stylelint": "0.4.x",
     "chalk": "2.4.2",
     "cross-spawn": "6.0.5",
-    "eslint": "6.0.1",
-    "eslint-config-react-app": "4.0.1",
-    "lint-staged": "9.0.2",
-    "prettier": "1.18.2",
-    "stylelint": "10.1.0",
-    "stylelint-order": "3.0.0"
+    "lint-staged": "9.0.2"
   }
 }

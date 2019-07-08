@@ -10,10 +10,11 @@ process.on('unhandledRejection', err => {
 const paths = require('../config/paths')
 const eslintConfig = `${paths.ownPath}/config/.eslintrc.json`
 
-const jsExtensions = 'js|jsx'
-const cssExtensions = 'css|pcss|scss'
+const sourceDir = 'src'
+const jsExtensions = '(js|jsx)'
+const cssExtensions = '(css|pcss|scss)'
 
-const eslintProc = spawn.sync('eslint', ['src/**/*.js', '--fix'], {
+const eslintProc = spawn.sync('eslint', [`${sourceDir}/**/*.${jsExtensions}`, '--fix'], {
   stdio: 'inherit',
 })
 
@@ -24,11 +25,9 @@ if (eslintProc.error) {
   console.log(chalk.green('Eslint executed correctly'))
 }
 
-const stylelintProc = spawn.sync('stylelint', ['src/**/*.pcss', '--fix'], {
+const stylelintProc = spawn.sync('stylelint', [`${sourceDir}/**/*.${cssExtensions}`, '--fix'], {
   stdio: 'inherit',
 })
-
-console.log(stylelintProc)
 
 if (stylelintProc.error) {
   console.error(stylelintProc.error)
