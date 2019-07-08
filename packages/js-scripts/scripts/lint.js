@@ -3,9 +3,14 @@
 const chalk = require('chalk')
 const spawn = require('cross-spawn')
 
+// Ensure environment variables are read.
+require('../config/env');
+
 process.on('unhandledRejection', err => {
   throw err
 })
+
+const isCIEnvironment = process.env.CI === 'true'
 
 const paths = require('../config/paths')
 const eslintConfig = `${paths.ownPath}/config/.eslintrc.json`
@@ -14,7 +19,7 @@ const sourceDir = 'src'
 const jsExtensions = '(js|jsx)'
 const cssExtensions = '(css|pcss|scss)'
 
-const eslintProc = spawn.sync('eslint', [`${sourceDir}/**/*.${jsExtensions}`, '--fix'], {
+const eslintProc = spawn.sync('eslint', [`${sourceDir}/**/*.${jsExtensions}`, isCIEnvironment ? '--check' : '--fix'], {
   stdio: 'inherit',
 })
 
@@ -25,7 +30,7 @@ if (eslintProc.error) {
   console.log(chalk.green('Eslint executed correctly'))
 }
 
-const stylelintProc = spawn.sync('stylelint', [`${sourceDir}/**/*.${cssExtensions}`, '--fix'], {
+const stylelintProc = spawn.sync('stylelint', [`${sourceDir}/**/*.${cssExtensions}`, isCIEnvironment ? '--check' : '--fix'], {
   stdio: 'inherit',
 })
 

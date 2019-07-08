@@ -1,6 +1,6 @@
 {
   "name": "js-scripts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "engines": {
     "node": ">=8.10"
   },
@@ -13,13 +13,15 @@
     "js-scripts": "./bin/js-scripts.js"
   },
   "dependencies": {
-    "chalk": "2.4.2",
-    "cross-spawn": "6.0.5",
-    "lint-staged": "9.0.2"
+    "chalk": "2.x",
+    "cross-spawn": "6.x",
+    "dotenv": "8.x",
+    "dotenv-expand": "5.x",
+    "lint-staged": "9.x"
   },
   "peerDependencies": {
-    "chalk": "2.4.2",
-    "cross-spawn": "6.0.5",
-    "lint-staged": "9.0.2"
+    "chalk": "2.x",
+    "cross-spawn": "6.x",
+    "lint-staged": "9.x"
   }
 }
