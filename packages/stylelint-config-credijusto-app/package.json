@@ -1,0 +1,24 @@
+{
+  "name": "stylelint-config-credijusto-app",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/credijusto/stylelint-config-cj-app.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/credijusto/stylelint-config-cj-app/issues"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "stylelint": "10.1.0",
+    "stylelint-config-standard": "18.3.0"
+  },
+  "peerDependencies": {
+    "stylelint": "10.1.0",
+    "stylelint-config-standard": "18.3.0"
+  }
+}
