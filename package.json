@@ -1,10 +1,10 @@
 {
-  "name": "@credijusto/js-scripts",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "lint": "cd packages/js-scripts && node bin/js-scripts.js lint"
+    "lint": "cd packages/js-scripts && node bin/js-scripts.js lint",
+    "precommit": "cd packages/js-scripts && node bin/js-scripts.js precommit"
   }
 }
