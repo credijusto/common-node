@@ -17,16 +17,12 @@
     "stylelint": "10.x",
     "stylelint-config-recommended": "2.x",
     "stylelint-config-standard": "18.x",
-    "stylelint-config-styled-components": "0.1.x",
     "stylelint-order": "3.x",
-    "stylelint-processor-styled-components": "1.x"
   },
   "peerDependencies": {
     "stylelint": "10.x",
     "stylelint-config-recommended": "2.x",
     "stylelint-config-standard": "18.x",
-    "stylelint-config-styled-components": "0.1.x",
     "stylelint-order": "3.x",
-    "stylelint-processor-styled-components": "1.x"
   }
 }

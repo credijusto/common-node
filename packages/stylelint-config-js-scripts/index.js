@@ -6,17 +6,15 @@
 'use strict'
 
 module.exports = {
-  'processors': ['stylelint-processor-styled-components'],
   extends: [
     'stylelint-config-standard',
     'stylelint-config-recommended',
-    'stylelint-config-styled-components'
   ],
   plugins: [
     'stylelint-order'
   ],
   rules: {
-    'length-zero-no-unit': 'always',
+    'length-zero-no-unit': true,
     'order/order': [
       'custom-properties',
       'declarations'
