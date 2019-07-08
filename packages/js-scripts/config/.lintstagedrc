@@ -1,6 +1,4 @@
 {
-  "concurrent": false,
-  "linters": {
-    "./**/*.{js|jsx|html|json|mdx|css|pcss}": ["npm run lint", "git add"]
-  }
+  "*.(js|jsx)": ["eslint --fix", "git add"],
+  "*.(css|pcss)": ["stylelint --fix", "git add"],
 }
