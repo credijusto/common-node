@@ -3,9 +3,6 @@
 const chalk = require('chalk')
 const spawn = require('cross-spawn')
 
-// Ensure environment variables are read.
-require('../config/env');
-
 process.on('unhandledRejection', err => {
   throw err
 })
