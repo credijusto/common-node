@@ -1,6 +1,6 @@
 {
   "name": "js-scripts",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "engines": {
     "node": ">=8.10"
   },
@@ -17,11 +17,15 @@
     "cross-spawn": "6.x",
     "dotenv": "8.x",
     "dotenv-expand": "5.x",
+    "husky": "3.x",
     "lint-staged": "9.x"
   },
   "peerDependencies": {
     "chalk": "2.x",
     "cross-spawn": "6.x",
+    "dotenv": "8.x",
+    "dotenv-expand": "5.x",
+    "husky": "3.x",
     "lint-staged": "9.x"
   }
 }
