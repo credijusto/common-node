@@ -16,16 +16,14 @@ const sourceDir = 'src'
 const jsExtensions = 'js|jsx'
 const cssExtensions = 'css|pcss|scss'
 
+const jsExtensionsArray = jsExtensions.split('|').reduce((exts, ext) => exts.concat(['--ext', ext]), [])
+
 const eslintProc = spawn.sync('eslint',
   [
     `${sourceDir}`,
-    [
-      `${sourceDir}`,
-      ...(jsExtensions.split('|').map(ext => ['--ext', ext])),
-      isCIEnvironment ? '--check' : '--fix'
-    ],
+    ...jsExtensionsArray,
     isCIEnvironment ? '--check' : '--fix'
-  ]),
+  ],
   { stdio: 'inherit' }
 )
 
