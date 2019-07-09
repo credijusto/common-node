@@ -1,29 +1,28 @@
 {
-  "name": "@credijusto/js-scripts",
-  "version": "0.0.2",
+  "name": "js-scripts",
+  "version": "0.0.15",
   "engines": {
     "node": ">=8.10"
   },
   "files": [
     "bin",
     "config",
-    "lib",
     "scripts"
   ],
   "bin": {
-    "@credijusto/js-scripts": "./bin/js-scripts.js"
+    "js-scripts": "./bin/js-scripts.js"
   },
   "dependencies": {
-    "@cesargdm/prettier-stylelint": "0.4.x",
     "chalk": "2.4.2",
     "cross-spawn": "6.0.5",
-    "eslint": "6.0.1",
-    "eslint-config-react-app": "4.0.1",
-    "glob": "7.1.4",
-    "lint-staged": "9.0.2",
-    "prettier": "1.18.2",
-    "prettier-eslint": "9.0.0",
-    "stylelint": "10.1.0",
-    "stylelint-order": "3.0.0"
+    "husky": "3.0.0",
+    "lint-staged": "9.1.0",
+    "prettier": "1.18.2"
+  },
+  "devDependencies": {
+    "eslint-config-js-scripts": "x"
+  },
+  "eslintConfig": {
+    "extends": "js-scripts"
   }
 }

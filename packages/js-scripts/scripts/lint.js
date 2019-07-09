@@ -1,79 +1,59 @@
-'use strict'
+const chalk = require('chalk');
+const spawn = require('cross-spawn');
 
-const fs = require('fs')
-const chalk = require('chalk')
-const path = require('path')
-const promisify = require('util').promisify
-const glob = require('glob')
-const prettierEslint = require('prettier-eslint')
-const spawn = require('cross-spawn')
-const prettierStylelint = require('@cesargdm/prettier-stylelint')
+process.on('unhandledRejection', (err) => {
+  throw err;
+});
 
-const readFile = promisify(fs.readFile)
-const writeFile = promisify(fs.writeFile)
+const isCIEnvironment = process.env.CI === 'true';
 
-process.on('unhandledRejection', err => {
-  throw err
-})
+const sourceDir = 'src';
+const jsExtensions = 'js|jsx';
+const cssExtensions = 'css|pcss|scss';
+const otherFilesExtensions = 'html|mxd|json';
 
-const paths = require('../config/paths')
+const jsExtensionsArray = jsExtensions
+  .split('|')
+  .reduce((exts, ext) => exts.concat(['--ext', ext]), []);
 
-const jsExtensions = 'js|jsx'
-const cssExtensions = 'css|pcss|scss'
+console.log(chalk.blue('Running prettier...'));
+const prettierProc = spawn.sync(
+  'prettier',
+  [
+    `${sourceDir}/**/*.{${otherFilesExtensions.replace(/\|/g, ',')}}`,
+    isCIEnvironment ? '--check' : '--write',
+  ],
+  { stdio: 'inherit' },
+);
+if (prettierProc.error) {
+  console.error(prettierProc.error);
+  process.exit(1);
+} else {
+  console.log(chalk.green('Prettier executed correctly'));
+}
 
-const formatJSFiles = () =>
-  glob(`${paths.appPath}/src/**/*.?(${jsExtensions})`, (er, files) => {
-    const promises = files.map(file => {
-      const formatted = prettierEslint({
-        filePath: file,
-        eslintConfig: { extends: 'react-app' },
-      })
+console.log(chalk.blue('Running eslint...'));
+const eslintProc = spawn.sync(
+  'eslint',
+  [`${sourceDir}`, ...jsExtensionsArray, isCIEnvironment ? '--check' : '--fix'],
+  { stdio: 'inherit' },
+);
+if (eslintProc.error) {
+  console.error(eslintProc.error);
+  process.exit(1);
+} else {
+  console.log(chalk.green('Eslint executed correctly'));
+}
 
-      return writeFile(file, formatted)
-    })
-
-    Promise.all(promises)
-      .then(() => {
-        console.log(chalk.green('All js files formatted correctly'))
-      })
-      .catch(error => {
-        console.log('Error formating files')
-        console.error(error)
-      })
-  })
-
-const formatsCSSFiles = () =>
-  glob(`${paths.appPath}/src/**/*.?(${cssExtensions})`, (error, files) => {
-    const formattings = files.map(file => {
-      const formatted = prettierStylelint({
-        filePath: file,
-        stylelintConfig: {
-          plugins: [require.resolve('stylelint-order')],
-          rules: {
-            'order/order': ['custom-properties', 'declarations'],
-            'order/properties-alphabetical-order': true,
-          },
-        },
-      })
-
-      return formatted
-    })
-
-    Promise.all(formattings).then(writes => {
-      const promises = writes.map((data, index) =>
-        writeFile(files[index], data)
-      )
-
-      Promise.all(promises)
-        .then(() => {
-          console.log(chalk.green('All css files formatted correctly'))
-        })
-        .catch(error => {
-          console.log('Error formating files')
-          console.error(error)
-        })
-    })
-  })
-
-formatJSFiles()
-formatsCSSFiles()
+console.log(chalk.blue('Running stylelint...'));
+const stylelintProc = spawn.sync(
+  'stylelint',
+  [`${sourceDir}/**/*.(${cssExtensions})`, isCIEnvironment ? '--check' : '--fix'],
+  { stdio: 'inherit' },
+);
+if (stylelintProc.error) {
+  console.error(stylelintProc.error);
+  process.exit(1);
+} else {
+  console.log(chalk.green('Stylelint executed correctly'));
+}

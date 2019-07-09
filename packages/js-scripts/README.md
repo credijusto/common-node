@@ -1,1 +1,1 @@
-# @credijusto/js-scripts
+# js-scripts
