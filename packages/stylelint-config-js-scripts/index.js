@@ -1,9 +1,6 @@
 /**
  * Copyright (c) present, Credijusto
- *
  */
-
-'use strict'
 
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recommended'],
@@ -15,4 +12,4 @@ module.exports = {
     'order/order': ['custom-properties', 'declarations'],
     'order/properties-alphabetical-order': true,
   },
-}
+};
