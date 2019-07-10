@@ -20,7 +20,7 @@ console.log(chalk.blue('Running prettier...'));
 const prettierProc = spawn.sync(
   'prettier',
   [
-    `${sourceDir}/**/*.{${otherFilesExtensions.replace(/\|/g, ',')}}`,
+    `"${sourceDir}/**/*.{${otherFilesExtensions.replace(/\|/g, ',')}}"`,
     isCIEnvironment ? '--check' : '--write',
   ],
   { stdio: 'inherit' },
@@ -35,7 +35,7 @@ if (prettierProc.error) {
 console.log(chalk.blue('Running eslint...'));
 const eslintProc = spawn.sync(
   'eslint',
-  [`${sourceDir}`, ...jsExtensionsArray, isCIEnvironment ? '--check' : '--fix'],
+  [`${sourceDir}`, ...jsExtensionsArray, ...(isCIEnvironment ? [] : ['--fix'])],
   { stdio: 'inherit' },
 );
 if (eslintProc.error) {
@@ -48,9 +48,10 @@ if (eslintProc.error) {
 console.log(chalk.blue('Running stylelint...'));
 const stylelintProc = spawn.sync(
   'stylelint',
-  [`${sourceDir}/**/*.(${cssExtensions})`, isCIEnvironment ? '--check' : '--fix'],
+  [`"${sourceDir}/**/*.(${cssExtensions})"`, ...(isCIEnvironment ? [] : ['--fix'])],
   { stdio: 'inherit' },
 );
+
 if (stylelintProc.error) {
   console.error(stylelintProc.error);
   process.exit(1);

@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-js-scripts",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "",
   "main": "./index.js",
   "repository": {
