@@ -1,5 +1,5 @@
-const chalk = require('chalk');
-const spawn = require('cross-spawn');
+const execa = require('execa');
+const Listr = require('listr');
 
 process.on('unhandledRejection', (err) => {
   throw err;
@@ -10,51 +10,45 @@ const isCIEnvironment = process.env.CI === 'true';
 const sourceDir = 'src';
 const jsExtensions = 'js|jsx';
 const cssExtensions = 'css|pcss|scss';
-const otherFilesExtensions = 'html|mxd|json';
+const otherFilesExtensions = 'html|mdx|json';
 
 const jsExtensionsArray = jsExtensions
   .split('|')
   .reduce((exts, ext) => exts.concat(['--ext', ext]), []);
 
-console.log(chalk.blue('Running prettier...'));
-const prettierProc = spawn.sync(
-  'prettier',
+console.log(' 🍃 Linting code ♻️\n');
+
+const tasks = new Listr(
   [
-    `"${sourceDir}/**/*.{${otherFilesExtensions.replace(/\|/g, ',')}}"`,
-    isCIEnvironment ? '--check' : '--write',
+    {
+      title: `Formatting with Prettier (${otherFilesExtensions})`,
+      task: () => execa('prettier', [
+        `${sourceDir}/**/*.{${otherFilesExtensions.replace(/\|/g, ',')}}`,
+        isCIEnvironment ? '--check' : '--write',
+        '--loglevel',
+        'warn',
+      ]),
+    },
+    {
+      title: `Formating with ESLint (${jsExtensions})`,
+      task: () => execa('eslint', [
+        `${sourceDir}`,
+        ...jsExtensionsArray,
+        ...(isCIEnvironment ? [] : ['--fix']),
+      ]),
+    },
+    {
+      title: `Formating with StyleLint (${cssExtensions})`,
+      task: () => execa('stylelint', [
+        `${sourceDir}/**/*.(${cssExtensions})`,
+        ...(isCIEnvironment ? [] : ['--fix']),
+      ]),
+    },
   ],
-  { stdio: 'inherit' },
-);
-if (prettierProc.error) {
-  console.error(prettierProc.error);
-  process.exit(1);
-} else {
-  console.log(chalk.green('Prettier executed correctly'));
-}
-
-console.log(chalk.blue('Running eslint...'));
-const eslintProc = spawn.sync(
-  'eslint',
-  [`${sourceDir}`, ...jsExtensionsArray, ...(isCIEnvironment ? [] : ['--fix'])],
-  { stdio: 'inherit' },
-);
-if (eslintProc.error) {
-  console.error(eslintProc.error);
-  process.exit(1);
-} else {
-  console.log(chalk.green('Eslint executed correctly'));
-}
-
-console.log(chalk.blue('Running stylelint...'));
-const stylelintProc = spawn.sync(
-  'stylelint',
-  [`"${sourceDir}/**/*.(${cssExtensions})"`, ...(isCIEnvironment ? [] : ['--fix'])],
-  { stdio: 'inherit' },
+  { concurrent: true },
 );
 
-if (stylelintProc.error) {
-  console.error(stylelintProc.error);
+tasks.run().catch((err) => {
+  console.error(err);
   process.exit(1);
-} else {
-  console.log(chalk.green('Stylelint executed correctly'));
-}
+});

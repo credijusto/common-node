@@ -1,6 +1,6 @@
 {
   "name": "js-scripts",
-  "version": "0.0.18",
+  "version": "0.0.20",
   "engines": {
     "node": ">=8.10"
   },
@@ -13,11 +13,12 @@
     "js-scripts": "./bin/js-scripts.js"
   },
   "dependencies": {
-    "chalk": "2.4.2",
     "cross-spawn": "6.0.5",
+    "execa": "2.0.3",
     "husky": "3.0.0",
     "lint-staged": "9.1.0",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "listr": "0.14.3"
   },
   "devDependencies": {
     "eslint-config-js-scripts": "x"
