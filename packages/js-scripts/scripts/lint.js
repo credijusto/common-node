@@ -30,7 +30,7 @@ const tasks = new Listr(
       ]),
     },
     {
-      title: `Formating with ESLint (${jsExtensions})`,
+      title: `Formatting with ESLint (${jsExtensions})`,
       task: () => execa('eslint', [
         `${sourceDir}`,
         ...jsExtensionsArray,
@@ -38,7 +38,7 @@ const tasks = new Listr(
       ]),
     },
     {
-      title: `Formating with StyleLint (${cssExtensions})`,
+      title: `Formatting with StyleLint (${cssExtensions})`,
       task: () => execa('stylelint', [
         `${sourceDir}/**/*.(${cssExtensions})`,
         ...(isCIEnvironment ? [] : ['--fix']),
