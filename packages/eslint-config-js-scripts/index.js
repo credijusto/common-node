@@ -17,8 +17,8 @@ module.exports = {
     },
   },
   rules: {
-    'react/jsx-filename-extension': 0,
+    'react/jsx-filename-extension': 'off',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'off',
   },
 };
