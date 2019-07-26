@@ -1,5 +1,5 @@
 {
-  "*.(js|jsx)": ["eslint --fix", "git add"],
-  "*.(scss|css|pcss)": ["stylelint --fix", "git add"],
-  "*.{html|json|mdx}": ["prettier --write", "git add"],
+  "./**/*.{js,jsx}": ["prettier --write", "eslint --fix", "git add"],
+  "./**/*.{scss,css,pcss}": ["prettier --write", "stylelint --fix", "git add"],
+  "./**/*.{html,json,mdx}": ["prettier --write", "git add"],
 }
