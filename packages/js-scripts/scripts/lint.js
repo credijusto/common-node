@@ -1,5 +1,6 @@
 const execa = require('execa');
 const Listr = require('listr');
+const chalk = require('chalk');
 
 process.on('unhandledRejection', (err) => {
   throw err;
@@ -16,39 +17,76 @@ const jsExtensionsArray = jsExtensions
   .split('|')
   .reduce((exts, ext) => exts.concat(['--ext', ext]), []);
 
-console.log(' 🍃 Linting code ♻️\n');
+console.log(chalk.green(' 🍃 Linting code ♻️\n'));
+
+const getCommaSeparated = (string) => string.replace(/\|/g, ',');
 
 const tasks = new Listr(
   [
     {
-      title: `Formatting with Prettier (${otherFilesExtensions})`,
-      task: () => execa('prettier', [
-        `${sourceDir}/**/*.{${otherFilesExtensions.replace(/\|/g, ',')}}`,
-        isCIEnvironment ? '--check' : '--write',
-        '--loglevel',
-        'warn',
-      ]),
+      title: `Formatting ${otherFilesExtensions} (Prettier)`,
+      task: () =>
+        execa('prettier', [
+          `${sourceDir}/**/*.{${getCommaSeparated(otherFilesExtensions)}}`,
+          isCIEnvironment ? '--check' : '--write',
+          '--loglevel',
+          'warn',
+        ]),
     },
     {
-      title: `Formatting with ESLint (${jsExtensions})`,
-      task: () => execa('eslint', [
-        `${sourceDir}`,
-        ...jsExtensionsArray,
-        ...(isCIEnvironment ? [] : ['--fix']),
-      ]),
+      title: `Formatting ${jsExtensions}`,
+      task: () =>
+        new Listr([
+          {
+            title: 'Prettier',
+            task: () =>
+              execa('prettier', [
+                `${sourceDir}/**/*.{${getCommaSeparated(jsExtensions)}}`,
+                isCIEnvironment ? '--check' : '--write',
+                '--loglevel',
+                'warn',
+              ]),
+          },
+          {
+            title: 'ESLint',
+            task: () =>
+              execa('eslint', [
+                `${sourceDir}`,
+                ...jsExtensionsArray,
+                ...(isCIEnvironment ? [] : ['--fix']),
+              ]),
+          },
+        ]),
     },
     {
-      title: `Formatting with StyleLint (${cssExtensions})`,
-      task: () => execa('stylelint', [
-        `${sourceDir}/**/*.(${cssExtensions})`,
-        ...(isCIEnvironment ? [] : ['--fix']),
-      ]),
+      title: `Formatting ${cssExtensions} (StyleLint)`,
+      task: () =>
+        new Listr([
+          {
+            title: 'Prettier',
+            task: () =>
+              execa('prettier', [
+                `${sourceDir}/**/*.{${getCommaSeparated(cssExtensions)}}`,
+                isCIEnvironment ? '--check' : '--write',
+                '--loglevel',
+                'warn',
+              ]),
+          },
+          {
+            title: 'Stylelint',
+            task: () =>
+              execa('stylelint', [
+                `${sourceDir}/**/*.(${cssExtensions})`,
+                ...(isCIEnvironment ? [] : ['--fix']),
+              ]),
+          },
+        ]),
     },
   ],
   { concurrent: true },
 );
 
 tasks.run().catch((err) => {
-  console.error(err);
+  console.log(chalk.red(err.stderr || err.stdout));
   process.exit(1);
 });
