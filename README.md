@@ -2,14 +2,36 @@
 
 > Created by Credijusto.com
 
-Set of custom scripts to include at a JS project.
-The available scripts are
+Set of custom packages, **eslint-config** rules, **stylelint-config** rules and a set of two scripts to include at a JS project.
+
+## Packages
+
+### `js-scripts`
+
+![npm](https://img.shields.io/npm/v/js-scripts)
+
+Set of two scripts, to handle code linting and pre-commit actions.
+
+The available scripts are:
 
 - `js-scripts lint`
 - `js-scripts precommit`
 
 
-#### Setup
+### `eslint-config-js-scripts`
+
+![npm](https://img.shields.io/npm/v/eslint-config-js-scripts)
+
+This package includes a ESLint configuration that extends `eslint-config-react-app` and adds some extra rules
+
+
+### `stylelint-config-js-scripts`
+
+![npm](https://img.shields.io/npm/v/stylelint-config-js-scripts)
+
+This package includes a StyleLint configuration that extends `stylelint-config-standard` and adds some extra rules
+
+## Setup
 
 Install dependencies
 
@@ -42,11 +64,4 @@ Add scripts and configuration to the package.json
 }
 ```
 
-### eslint-config-js-scripts
-
-This package includes a ESLint configuration that extends `eslint-config-react-app` and adds some extra rules
-
-
-### stylelint-config-js-scripts
-
-This package includes a StyleLint configuration that extends `stylelint-config-standard` and adds some extra rules
+The `js-scripts` package works also with any eslint/stylelint rules, just add the rules at `package.json` or in their custom configuration file.
