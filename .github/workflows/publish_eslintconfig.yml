@@ -1,0 +1,24 @@
+name: publish eslint-config-js-scripts
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "packages/eslint-config-js-scripts/*"
+
+jobs:
+  publish:
+    name: Publish package to npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Publish to npm
+        run: npm publish
+        working-directory: ./packages/eslint-config-js-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token_jsscripts}}

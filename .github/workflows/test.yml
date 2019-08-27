@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm i
+      - run: npm ci
         working-directory: ./packages/js-scripts
       - run: npm test
         working-directory: ./packages/js-scripts
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm i
+      - run: npm ci
         working-directory: ./packages/eslint-config-js-scripts
       - run: npm test
         working-directory: ./packages/eslint-config-js-scripts
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm i
+      - run: npm ci
         working-directory: ./packages/stylelint-config-js-scripts
       - run: npm test
         working-directory: ./packages/stylelint-config-js-scripts
@@ -46,7 +46,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm i
+      - run: npm ci
         working-directory: ./packages/prettier-config-js-scripts
       - run: npm test
         working-directory: ./packages/prettier-config-js-scripts
