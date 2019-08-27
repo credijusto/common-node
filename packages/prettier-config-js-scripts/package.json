@@ -1,0 +1,11 @@
+{
+  "name": "prettier-config-js-scripts",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "main": "index.json",
+  "files": [
+    "index.json"
+  ]
+}

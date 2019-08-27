@@ -1,0 +1,52 @@
+name: test
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  js-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm i
+        working-directory: ./packages/js-scripts
+      - run: npm test
+        working-directory: ./packages/js-scripts
+  eslint-config-js-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm i
+        working-directory: ./packages/eslint-config-js-scripts
+      - run: npm test
+        working-directory: ./packages/eslint-config-js-scripts
+  stylelint-config-js-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm i
+        working-directory: ./packages/stylelint-config-js-scripts
+      - run: npm test
+        working-directory: ./packages/stylelint-config-js-scripts
+  prettier-config-js-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm i
+        working-directory: ./packages/prettier-config-js-scripts
+      - run: npm test
+        working-directory: ./packages/prettier-config-js-scripts

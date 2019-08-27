@@ -1,0 +1,26 @@
+name: Publish js-scripts
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "packages/js-scripts/*"
+
+jobs:
+  publish:
+    name: Publish package to npm
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Publish to npm
+        if: github.event_name != 'pull_request'
+        run: npm publish
+        working-directory: ./packages/js-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token_jsscripts}}
