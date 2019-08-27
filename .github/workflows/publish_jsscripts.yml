@@ -1,4 +1,4 @@
-name: Publish js-scripts
+name: publish js-scripts
 
 on:
   push:
@@ -18,7 +18,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - name: Publish to npm
-        if: github.event_name != 'pull_request'
         run: npm publish
         working-directory: ./packages/js-scripts
         env:

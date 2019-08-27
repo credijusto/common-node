@@ -1,4 +1,4 @@
-name: Publish prettier config
+name: publish prettier-config
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
 
 jobs:
   publish:
-    name: Publish package to npm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -17,8 +16,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: Publish to npm
-        if: github.event_name != 'pull_request'
+      - name: publish to npm
         run: npm publish
         working-directory: ./packages/prettier-config-js-scripts
         env:
