@@ -12,5 +12,6 @@
   "scripts": {
     "lint": "cd packages/js-scripts && node bin/js-scripts.js lint",
     "precommit": "cd packages/js-scripts && node bin/js-scripts.js precommit"
-  }
+  },
+  "prettier": "./packages/prettier-config-js-scripts"
 }

@@ -83,7 +83,7 @@ const tasks = new Listr(
         ]),
     },
   ],
-  { concurrent: true },
+  { concurrent: true }
 );
 
 tasks.run().catch((err) => {

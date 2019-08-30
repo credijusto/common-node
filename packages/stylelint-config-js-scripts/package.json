@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-js-scripts",
-  "version": "0.0.27",
+  "version": "0.0.30",
   "description": "",
   "main": "./index.js",
   "repository": {
@@ -22,9 +22,11 @@
     "stylelint-scss": "3.9.1"
   },
   "devDependencies": {
-    "eslint-config-js-scripts": "x"
+    "eslint-config-js-scripts": "x",
+    "prettier-config-js-scripts": "x"
   },
   "eslintConfig": {
     "extends": "js-scripts"
-  }
+  },
+  "prettier": "prettier-config-js-scripts"
 }
