@@ -47,7 +47,7 @@ Install dependencies
 > npm i -D husky
 ```
 
-Add scripts and configuration to the package.json
+Make sure you have the following properties in your `package.json`.
 
 ```diff
 {
@@ -70,4 +70,4 @@ Add scripts and configuration to the package.json
 }
 ```
 
-The `js-scripts` package works also with any eslint/stylelint rules, just add the rules at `package.json` or in their custom configuration file.
+The `js-scripts` package works also with any eslint/stylelint rules, just add the previous rules in your `package.json` or in their custom configuration file.
