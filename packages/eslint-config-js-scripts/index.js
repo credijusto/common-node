@@ -4,8 +4,8 @@
 
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:jsx-a11y/strict', 'plugin:prettier/recommended'],
-  plugins: ['jsx-a11y', 'react-hooks'],
+  extends: ['airbnb', 'plugin:jsx-a11y/strict', 'prettier'],
+  plugins: ['jsx-a11y', 'react-hooks', 'prettier'],
   env: {
     browser: true,
     node: true,
@@ -17,6 +17,7 @@ module.exports = {
     },
   },
   rules: {
+    'prettier/prettier': 'warn',
     'react/jsx-filename-extension': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'off',
