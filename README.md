@@ -29,7 +29,7 @@ This package includes a ESLint configuration that extends `eslint-config-react-a
 
 This package includes a StyleLint configuration that extends `stylelint-config-standard` and adds some extra rules
 
-# `prettier-config-js-scripts`
+### `prettier-config-js-scripts`
 
 ![npm](https://img.shields.io/npm/v/prettier-config-js-scripts)
 
