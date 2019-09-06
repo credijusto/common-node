@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-js-scripts",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "",
   "main": "./index.js",
   "repository": {
@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "stylelint": "10.1.0",
+    "stylelint-config-prettier": "5.2.0",
     "stylelint-config-recommended": "2.2.0",
     "stylelint-config-standard": "18.3.0",
     "stylelint-order": "3.0.0",

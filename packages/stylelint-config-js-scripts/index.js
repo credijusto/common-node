@@ -3,7 +3,11 @@
  */
 
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-recommended'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-recommended',
+    'stylelint-config-prettier',
+  ],
   plugins: ['stylelint-scss', 'stylelint-order'],
   rules: {
     'at-rule-no-unknown': null,
