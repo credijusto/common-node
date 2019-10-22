@@ -23,5 +23,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'off',
     'react/jsx-wrap-multilines': 'off',
     'default-param-last': 'warn',
+    'func-style': ['warn', 'expression'],
   },
 };
