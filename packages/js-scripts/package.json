@@ -1,6 +1,6 @@
 {
   "name": "js-scripts",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "engines": {
     "node": ">=8.10"
   },
@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "chalk": "2.4.2",
-    "execa": "2.0.3",
-    "husky": "3.0.0",
-    "lint-staged": "9.1.0",
+    "execa": "3.2.0",
+    "husky": "3.0.9",
+    "lint-staged": "9.4.2",
     "listr": "0.14.3",
     "prettier": "1.18.2",
-    "stylelint": "10.1.0"
+    "stylelint": "11.1.1"
   },
   "devDependencies": {
     "eslint-config-js-scripts": "x",

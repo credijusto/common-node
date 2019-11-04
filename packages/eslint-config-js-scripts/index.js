@@ -20,7 +20,7 @@ module.exports = {
     'prettier/prettier': 'warn',
     'react/jsx-filename-extension': 'off',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'off',
+    'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-wrap-multilines': 'off',
     'default-param-last': 'warn',
     'func-style': ['warn', 'expression'],
