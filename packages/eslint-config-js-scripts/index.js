@@ -24,6 +24,6 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off',
     'default-param-last': 'warn',
     "import/prefer-default-export": "off",
-    'func-style': ['warn', 'expression'],
+    'func-style': ['error', 'declaration', { "allowArrowFunctions": true }],
   },
 };
