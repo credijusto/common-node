@@ -78,6 +78,7 @@ const tasks = new Listr(
               execa('stylelint', [
                 `${sourceDir}/**/*.(${cssExtensions})`,
                 ...(isCIEnvironment ? [] : ['--fix']),
+                '--allow-empty-input',
               ]),
           },
         ]),
