@@ -4,8 +4,16 @@
 
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:jsx-a11y/strict', 'prettier'],
-  plugins: ['jsx-a11y', 'react-hooks', 'prettier'],
+  extends: [
+    'airbnb',
+    'plugin:jsx-a11y/strict',
+    'prettier'
+  ],
+  plugins: [
+    'jsx-a11y',
+    'react-hooks',
+    'prettier'
+  ],
   env: {
     browser: true,
     node: true,
@@ -23,7 +31,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-wrap-multilines': 'off',
     'default-param-last': 'warn',
-    "import/prefer-default-export": "off",
+    'import/prefer-default-export': 'off',
     'func-style': ['error', 'declaration', { "allowArrowFunctions": true }],
+    'curly': 'all',
   },
 };
