@@ -33,6 +33,6 @@ module.exports = {
     'default-param-last': 'warn',
     'import/prefer-default-export': 'off',
     'func-style': ['error', 'declaration', { "allowArrowFunctions": true }],
-    'curly': 'all',
+    'curly': 'error',
   },
 };
