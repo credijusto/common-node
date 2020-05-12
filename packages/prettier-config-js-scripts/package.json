@@ -4,9 +4,9 @@
   "engines": {
     "node": ">=8.10"
   },
-  "main": "index.json",
+  "main": ".prettierrc.yaml",
   "files": [
-    "index.json"
+    ".prettierrc.yaml"
   ],
-  "prettier": "./index.json"
+  "prettier": "./.prettierrc.yaml"
 }
