@@ -34,11 +34,7 @@ settings:
       - src
 
 rules:
-  prettier/prettier: warn
-  react/jsx-filename-extension: 'off'
-  react-hooks/rules-of-hooks: error
-  react-hooks/exhaustive-deps: warn
-  react/jsx-wrap-multilines: 'off'
+  # Core ESLint
   default-param-last: warn
   import/prefer-default-export: 'off'
   func-style:
@@ -46,3 +42,14 @@ rules:
   - declaration
   - allowArrowFunctions: true
   curly: error
+
+  # Prettier
+  prettier/prettier: warn
+
+  # React
+  react/jsx-filename-extension: 'off'
+  react/jsx-wrap-multilines: 'off'
+
+  # React hooks
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn
