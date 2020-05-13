@@ -72,6 +72,7 @@ rules:
   no-new-func: error
   no-new-wrappers: error
   no-octal-escape: error
+  # TODO: Change warn to error in the next major version
   no-param-reassign: warn
   no-proto: error
   no-return-assign: error
@@ -92,16 +93,40 @@ rules:
   prefer-regex-literals: error
   radix: error, as-needed
   require-await: error
-  require-unicode-regexp: error
+  # TODO: Change warn to error in the next major version
+  require-unicode-regexp: warn
   wrap-iife: error, inside
   yoda: error, never, exceptRange: true
-
-  default-param-last: warn
-  import/prefer-default-export: 'off'
-  func-style:
+  # Variables
+  no-shadow: error
+  no-use-before-define: error, nofunc
+  # Stylistic issues
+  func-style: error, declaration, allowArrowFunctions: true
+  # TODO: Change warn to error in the next major version
+  one-var: warn, never
+  # ECMAScript 6
+  # TODO: Change warn to error in the next major version
+  arrow-parens: warn, always
+  no-confusing-arrow: error
+  no-duplicate-imports: error, includeExports: true
+  no-useless-computed-key: error
+  no-useless-constructor: error
+  no-useless-rename: error
+  no-var: error
+  # TODO: Change warn to error in the next major version
+  object-shorthand: warn, always
+  prefer-const: error
+  prefer-destructuring:
   - error
-  - declaration
-  - allowArrowFunctions: true
+  - { array:  false, object: true }
+  - enforceForRenamedProperties: false
+  prefer-numeric-literals: error
+  prefer-rest-params: error
+  prefer-spread: error
+  symbol-description: error
+
+  # Import
+  import/prefer-default-export: 'off'
 
   # Prettier
   prettier/prettier: warn
