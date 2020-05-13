@@ -2,7 +2,7 @@
   "name": "eslint-config-js-scripts",
   "version": "0.0.40",
   "description": "",
-  "main": "./index.js",
+  "main": "./.eslintrc.yaml",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/credijusto/eslint-config-cj-app.git"
@@ -12,10 +12,10 @@
     "url": "https://github.com/credijusto/eslint-config-cj-app/issues"
   },
   "files": [
-    "index.js"
+    ".eslintrc.yaml"
   ],
   "eslintConfig": {
-    "extends": "./index.js"
+    "extends": "./.eslintrc.yaml"
   },
   "dependencies": {
     "babel-eslint": "10.x",
