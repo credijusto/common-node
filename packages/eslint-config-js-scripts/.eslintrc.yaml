@@ -11,6 +11,8 @@ extends:
 - eslint:recommended
 - plugin:jsx-a11y/strict
 - plugin:react/recommended
+# Prettier configuration should be last, as per docs:
+# https://prettier.io/docs/en/integrating-with-linters.html#disable-formatting-rules
 - prettier
 
 parserOptions:
