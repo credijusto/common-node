@@ -35,6 +35,14 @@ settings:
 
 rules:
   # Core ESLint
+  # Possible errors
+  no-await-in-loop: error
+  no-console: warn
+  no-template-curly-in-string: warn
+  no-useless-backreference: warn
+  require-atomic-updates: warn
+  # Best practices
+
   default-param-last: warn
   import/prefer-default-export: 'off'
   func-style:
