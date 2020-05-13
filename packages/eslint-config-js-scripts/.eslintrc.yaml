@@ -11,8 +11,15 @@ plugins:
 - react-hooks
 - prettier
 
+parserOptions:
+  ecmaVersion: 2015
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+
 env:
   browser: true
+  es6: true
   node: true
   jest: true
 
