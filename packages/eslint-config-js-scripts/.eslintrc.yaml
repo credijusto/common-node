@@ -38,10 +38,63 @@ rules:
   # Possible errors
   no-await-in-loop: error
   no-console: warn
-  no-template-curly-in-string: warn
-  no-useless-backreference: warn
-  require-atomic-updates: warn
+  no-template-curly-in-string: error
+  no-useless-backreference: error
+  require-atomic-updates: error
   # Best practices
+  accessor-pairs: error
+  array-callback-return: error
+  consistent-return: error
+  curly: error
+  default-case-last: error
+  default-param-last: error
+  dot-location: error, property
+  dot-notation: error
+  eqeqeq: error
+  grouped-accessor-pairs: error
+  guard-for-in: error
+  no-alert: warn
+  no-caller: error
+  no-constructor-return: error
+  no-empty-function: error
+  no-eval: error
+  no-extend-native: error
+  no-extra-bind: error
+  no-floating-decimal: error
+  no-implicit-coercion: error
+  no-implied-eval: error
+  no-invalid-this: error
+  no-iterator: error
+  no-labels: error
+  no-loop-func: error
+  no-magic-numbers: warn, ignore: [0, -1, 1]
+  no-new: error
+  no-new-func: error
+  no-new-wrappers: error
+  no-octal-escape: error
+  no-param-reassign: warn
+  no-proto: error
+  no-return-assign: error
+  no-return-await: error
+  no-script-url: error
+  no-self-compare: error
+  no-sequences: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unused-expressions: error
+  no-useless-call: error
+  no-useless-concat: error
+  no-useless-return: error
+  no-void: error
+  no-warning-comments: warn
+  prefer-named-capture-group: error
+  prefer-promise-reject-errors: error
+  prefer-regex-literals: error
+  radix: error, as-needed
+  require-await: error
+  require-unicode-regexp: error
+  wrap-iife: error, inside
+  yoda: error, never, exceptRange: true
 
   default-param-last: warn
   import/prefer-default-export: 'off'
@@ -49,7 +102,6 @@ rules:
   - error
   - declaration
   - allowArrowFunctions: true
-  curly: error
 
   # Prettier
   prettier/prettier: warn
