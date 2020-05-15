@@ -2,7 +2,10 @@
 
 > Created by Credijusto.com
 
-Set of custom packages, **eslint-config** rules, **stylelint-config** rules and a set of two scripts to include at a JS project.
+Common things for all JavaScript projects based on Node environment.
+
+Currently it's a set of 4 custom NPM packages: configurations for ESLint,
+Stylelint, and Prettier, and 2 scripts to run those tools.
 
 ## Packages
 
@@ -21,13 +24,15 @@ The available scripts are:
 
 ![npm](https://img.shields.io/npm/v/eslint-config-js-scripts)
 
-This package includes a ESLint configuration that extends `eslint-config-react-app` and adds some extra rules
+This package includes a ESLint configuration that extends
+`eslint-config-react-app` and adds some extra rules
 
 ### `stylelint-config-js-scripts`
 
 ![npm](https://img.shields.io/npm/v/stylelint-config-js-scripts)
 
-This package includes a StyleLint configuration that extends `stylelint-config-standard` and adds some extra rules
+This package includes a StyleLint configuration that extends
+`stylelint-config-standard` and adds some extra rules
 
 ### `prettier-config-js-scripts`
 
@@ -70,4 +75,7 @@ Make sure you have the following properties in your `package.json`.
 }
 ```
 
-The `js-scripts` package works also with any eslint/stylelint rules, just add the previous rules in your `package.json` or in their custom configuration file.
+## Customization
+
+You can customize ESLint/Stylelint rules. Just add your own rules regularly in
+your project's configuration.
