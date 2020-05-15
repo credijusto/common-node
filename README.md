@@ -1,4 +1,4 @@
-# JS Scripts
+# Common Node
 
 > Created by Credijusto.com
 
